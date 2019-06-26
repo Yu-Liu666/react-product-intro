@@ -296,13 +296,23 @@ export default class ReactUserTour extends Component {
 						{this.props.doneButtonText}
 				</TourButton> : ""
 		);
+   
+    const dismissAllButton = (
+      <TourButton
+        style={this.props.doneButtonStyle}
+        onClick={this.props.dismiss}
+        {...extraButtonProps}
+        className="react-user-tour-done-button">
+          {this.props.disMissAllButtonText}
+      </TourButton>
+		);
 
     const tourStepsCounter = (
       !this.props.hideSteps ?
         <div style={{ position: "absolute", left: 20, bottom: 10, ...this.props.tourStepsCounterStyle }}>
           {`${this.props.step} of ${this.props.steps.length}`}
         </div> : ""
-    )
+    );
 
 		const tourButtonContainer = (
 			!this.props.hideButtons ?
@@ -358,15 +368,18 @@ export default class ReactUserTour extends Component {
 			<div className="react-user-tour-container" style={tourContainerStyle}>
 				<Motion style={{x: spring(stepPosition.left), y: spring(stepPosition.top)}}>
 					{({x, y}) =>
-
+            
 						<div style={{...tooltipStyle, transform: `translate3d(${x}px, ${y}px, 0)`, WebkitTransform: `translate3d(${x}px, ${y}px, 0)`}}>
-              {beacon}
-							{arrow}
-							{closeButton}
-							{currentTourStep.title}
-							{currentTourStep.body}
-              {tourStepsCounter}
-							{tourButtonContainer}
+              {dismissAllButton}
+              <div>
+                {beacon}
+                {arrow}
+                {closeButton}
+                {currentTourStep.title}
+                {currentTourStep.body}
+                {tourStepsCounter}
+                {tourButtonContainer}
+              </div>
 						</div>
 					}
 				</Motion>

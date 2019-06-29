@@ -318,10 +318,10 @@ export default class ReactUserTour extends Component {
 		const tourButtonContainer = (
 			!this.props.hideButtons ?
 				<TourButtonContainer style={this.props.buttonContainerStyle}>
-					{nextButton}
+					{nextPageButton}
+          {nextButton}
 					{doneButton}
 					{backButton}
-          {nextPageButton}
 				</TourButtonContainer> : ""
 		);
 

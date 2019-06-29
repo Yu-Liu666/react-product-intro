@@ -297,14 +297,15 @@ export default class ReactUserTour extends Component {
 				</TourButton> : ""
 		);
    
-    const dismissAllButton = (
+    const nextPageButton = (
+      this.props.step !== this.props.end ?
       <TourButton
-        style={this.props.doneButtonStyle}
-        onClick={this.props.dismiss}
+        style={this.props.nextPageButtonStyle}
+        onClick={this.props.nextPage}
         {...extraButtonProps}
         className="react-user-tour-done-button">
-          {this.props.disMissAllButtonText}
-      </TourButton>
+          NextPage
+      </TourButton> : ""
 		);
 
     const tourStepsCounter = (
@@ -320,6 +321,7 @@ export default class ReactUserTour extends Component {
 					{nextButton}
 					{doneButton}
 					{backButton}
+          {nextPageButton}
 				</TourButtonContainer> : ""
 		);
 
@@ -370,16 +372,13 @@ export default class ReactUserTour extends Component {
 					{({x, y}) =>
             
 						<div style={{...tooltipStyle, transform: `translate3d(${x}px, ${y}px, 0)`, WebkitTransform: `translate3d(${x}px, ${y}px, 0)`}}>
-              {dismissAllButton}
-              <div>
-                {beacon}
-                {arrow}
-                {closeButton}
-                {currentTourStep.title}
-                {currentTourStep.body}
-                {tourStepsCounter}
-                {tourButtonContainer}
-              </div>
+              {beacon}
+              {arrow}
+              {closeButton}
+              {currentTourStep.title}
+              {currentTourStep.body}
+              {tourStepsCounter}
+              {tourButtonContainer}
 						</div>
 					}
 				</Motion>

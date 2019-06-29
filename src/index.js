@@ -299,13 +299,11 @@ export default class ReactUserTour extends Component {
    
     const nextPageButton = (
       this.props.step !== this.props.end ?
-      <TourButton
-        style={this.props.nextPageButtonStyle}
-        onClick={this.props.nextPage}
-        {...extraButtonProps}
-        className="react-user-tour-done-button">
-          NextPage
-      </TourButton> : ""
+        <span className="react-user-tour-close"
+              style={{ float: "right", cursor: "pointer" }}
+              onClick={this.props.nextPage}>
+          Jump to next page
+        </span> : ""
 		);
 
     const tourStepsCounter = (
@@ -318,7 +316,6 @@ export default class ReactUserTour extends Component {
 		const tourButtonContainer = (
 			!this.props.hideButtons ?
 				<TourButtonContainer style={this.props.buttonContainerStyle}>
-					{nextPageButton}
           {nextButton}
 					{doneButton}
 					{backButton}
@@ -375,6 +372,7 @@ export default class ReactUserTour extends Component {
               {beacon}
               {arrow}
               {closeButton}
+              {nextPageButton}
               {currentTourStep.title}
               {currentTourStep.body}
               {tourStepsCounter}

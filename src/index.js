@@ -302,7 +302,7 @@ export default class ReactUserTour extends Component {
         <span className="react-user-tour-close"
               style={{ float: "right", cursor: "pointer", display: "inline-block" }}
               onClick={this.props.nextPage}>
-          Jump to next page
+          Next Page
         </span> : ""
 		);
 
@@ -372,6 +372,7 @@ export default class ReactUserTour extends Component {
               {beacon}
               {arrow}
               {closeButton}
+              <br/>
               {nextPageButton}
               {currentTourStep.title}
               {currentTourStep.body}

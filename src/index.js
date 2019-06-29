@@ -300,7 +300,7 @@ export default class ReactUserTour extends Component {
     const nextPageButton = (
       this.props.step !== this.props.end ?
         <span className="react-user-tour-close"
-              style={{ float: "right", cursor: "pointer", borderStyle: "groove" }}
+              style={{ float: "right", cursor: "pointer", borderStyle: "groove", marginRight: "1px" }}
               onClick={this.props.nextPage}>
           Next Page
         </span> : ""
@@ -371,9 +371,9 @@ export default class ReactUserTour extends Component {
 						<div style={{...tooltipStyle, transform: `translate3d(${x}px, ${y}px, 0)`, WebkitTransform: `translate3d(${x}px, ${y}px, 0)`}}>
               {beacon}
               {arrow}
+              {nextPageButton}
               {closeButton}
               {currentTourStep.title}
-              {nextPageButton}
               {currentTourStep.body}
               {tourStepsCounter}
               {tourButtonContainer}

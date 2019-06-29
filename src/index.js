@@ -373,7 +373,6 @@ export default class ReactUserTour extends Component {
               {arrow}
               {closeButton}
               {currentTourStep.title}
-              <br/>
               {nextPageButton}
               {currentTourStep.body}
               {tourStepsCounter}

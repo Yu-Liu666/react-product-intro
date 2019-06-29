@@ -300,7 +300,7 @@ export default class ReactUserTour extends Component {
     const nextPageButton = (
       this.props.step !== this.props.end ?
         <span className="react-user-tour-close"
-              style={{ float: "right", cursor: "pointer" }}
+              style={{ float: "right", cursor: "pointer", display: "inline-block" }}
               onClick={this.props.nextPage}>
           Jump to next page
         </span> : ""

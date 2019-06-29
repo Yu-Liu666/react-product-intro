@@ -372,9 +372,9 @@ export default class ReactUserTour extends Component {
               {beacon}
               {arrow}
               {closeButton}
+              {currentTourStep.title}
               <br/>
               {nextPageButton}
-              {currentTourStep.title}
               {currentTourStep.body}
               {tourStepsCounter}
               {tourButtonContainer}

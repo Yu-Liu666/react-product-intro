@@ -305,6 +305,15 @@ export default class ReactUserTour extends Component {
           Next Page
         </span> : ""
 		);
+    
+    const prevPageButton = (
+      this.props.step !== this.props.start ?
+        <span className="react-user-tour-close"
+              style={{ float: "right", cursor: "pointer", backgroundColor: "lightgrey", marginRight: "3px", marginTop: "1px" }}
+              onClick={this.props.prevPage}>
+          Prev Page
+        </span> : ""
+		);
 
     const tourStepsCounter = (
       !this.props.hideSteps ?
@@ -373,6 +382,7 @@ export default class ReactUserTour extends Component {
               {arrow}
               {closeButton}
               {nextPageButton}
+              {prevPageButton}
               {currentTourStep.title}
               {currentTourStep.body}
               {tourStepsCounter}

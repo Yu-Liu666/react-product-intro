@@ -300,7 +300,7 @@ export default class ReactUserTour extends Component {
     const nextPageButton = (
       this.props.step !== this.props.end ?
         <span className="react-user-tour-close"
-              style={{ float: "right", cursor: "pointer", backgroundColor: "lightgrey", marginRight: "3px", marginTop: "1px" }}
+              style={this.props.upButtonStyle}
               onClick={this.props.nextPage}>
           Next Page
         </span> : ""
@@ -309,7 +309,7 @@ export default class ReactUserTour extends Component {
     const prevPageButton = (
       this.props.step !== this.props.start ?
         <span className="react-user-tour-close"
-              style={{ float: "right", cursor: "pointer", backgroundColor: "lightgrey", marginRight: "3px", marginTop: "1px" }}
+              style={this.props.upButtonStyle}
               onClick={this.props.prevPage}>
           Prev Page
         </span> : ""
@@ -341,7 +341,7 @@ export default class ReactUserTour extends Component {
           </span>
         :
   				<span className="react-user-tour-close"
-  					style={{ float: "right", cursor: "pointer", backgroundColor: "lightgrey", marginRight: "1px", marginTop: "1px" }}
+  					style={this.props.upButtonStyle}
   					onClick={this.props.onCancel}>
   						{this.props.closeButtonText}
   				</span>

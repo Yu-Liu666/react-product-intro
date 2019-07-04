@@ -314,6 +314,14 @@ export default class ReactUserTour extends Component {
           Prev Page
         </span> : ""
 		);
+      
+    const remindMeButton = (
+      <span className="react-user-tour-close"
+            style={this.props.upButtonStyle}
+            onClick={this.props.remindMe}>
+        Remind Me Later
+      </span>
+		);
 
     const tourStepsCounter = (
       !this.props.hideSteps ?
@@ -383,6 +391,7 @@ export default class ReactUserTour extends Component {
               {closeButton}
               {nextPageButton}
               {prevPageButton}
+              {remindMeButton}
               {currentTourStep.title}
               {currentTourStep.body}
               {tourStepsCounter}

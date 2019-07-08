@@ -302,7 +302,7 @@ export default class ReactUserTour extends Component {
         <span className="react-user-tour-close"
               style={this.props.upButtonStyle}
               onClick={this.props.nextPage}>
-          Next Page
+          {this.props.nextText}
         </span> : ""
 		);
     
@@ -311,7 +311,7 @@ export default class ReactUserTour extends Component {
         <span className="react-user-tour-close"
               style={this.props.upButtonStyle}
               onClick={this.props.prevPage}>
-          Prev Page
+          {this.props.prevText}
         </span> : ""
 		);
       
@@ -319,7 +319,7 @@ export default class ReactUserTour extends Component {
       <span className="react-user-tour-close"
             style={this.props.upButtonStyle}
             onClick={this.props.remindMe}>
-        Remind Me Later
+        {this.props.remindText}
       </span>
 		);
 

@@ -224,7 +224,34 @@ export default class ReactUserTour extends Component {
     if (currentTourStep.before && typeof currentTourStep.before === "function" ) {
       currentTourStep.before();
     }
+    
+    const buttonStyle = {
+      cursor:          'pointer',
+      backgroundColor: '#607d8b',
+      color:           'white',
+      marginTop:       '8px',
+      marginRight:     '10px',
+      borderRadius:    '10px',
+      paddingLeft:     '3px',
+      paddingRight:    '3px'
+    };
 
+    const upButtonStyle = {
+      float:           'right',
+      cursor:          'pointer',
+      backgroundColor: '#607d8b',
+      color:           'white',
+      marginTop:       '8px',
+      marginRight:     '14px',
+      padding:         '5px 11px 5px 11px',
+      borderRadius:    '10px',
+      fontWeight:      'bold'
+    };
+
+    const beaconStyle = {
+      backgroundColor: '#F4F6F8'
+    }; 
+    
 		const stepPosition = this.getStepPosition({
       selector: currentTourStep.selector,
       tourElWidth: this.width,
@@ -238,7 +265,7 @@ export default class ReactUserTour extends Component {
     const beacon = !this.props.hideBeacon
     ?
     <Beacon
-      style={this.props.beaconStyle}
+      style={beaconStyle}
       position={stepPosition.positioned}
       width={this.width}
       height={this.height}
@@ -262,7 +289,7 @@ export default class ReactUserTour extends Component {
 			/>
 		);
 
-		const extraButtonProps = this.props.buttonStyle ? { style: this.props.buttonStyle } : {};
+		const extraButtonProps = {style: buttonStyle};
 
     const backButton = (
       this.props.step !== 1 ?
@@ -300,7 +327,7 @@ export default class ReactUserTour extends Component {
     const nextPageButton = (
       this.props.step !== this.props.end ?
         <span className="react-user-tour-close"
-              style={this.props.upButtonStyle}
+              style={upButtonStyle}
               onClick={this.props.nextPage}>
           {this.props.nextText}
         </span> : ""
@@ -309,7 +336,7 @@ export default class ReactUserTour extends Component {
     const prevPageButton = (
       this.props.step !== this.props.start ?
         <span className="react-user-tour-close"
-              style={this.props.upButtonStyle}
+              style={upButtonStyle}
               onClick={this.props.prevPage}>
           {this.props.prevText}
         </span> : ""
@@ -317,7 +344,7 @@ export default class ReactUserTour extends Component {
       
     const remindMeButton = (
       <span className="react-user-tour-close"
-            style={this.props.upButtonStyle}
+            style={upButtonStyle}
             onClick={this.props.remindMe}>
         {this.props.remindText}
       </span>
@@ -384,7 +411,7 @@ export default class ReactUserTour extends Component {
 			<div className="react-user-tour-container" style={tourContainerStyle}>
 				<Motion style={{x: spring(stepPosition.left), y: spring(stepPosition.top)}}>
 					{({x, y}) =>
-            
+
 						<div style={{...tooltipStyle, transform: `translate3d(${x}px, ${y}px, 0)`, WebkitTransform: `translate3d(${x}px, ${y}px, 0)`}}>
               {beacon}
               {arrow}

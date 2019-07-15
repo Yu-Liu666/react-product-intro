@@ -376,7 +376,7 @@ export default class ReactUserTour extends Component {
           </span>
         :
   				<span className="react-user-tour-close"
-  					style={this.props.upButtonStyle}
+  					style={upButtonStyle}
   					onClick={this.props.onCancel}>
   						{this.props.closeButtonText}
   				</span>
